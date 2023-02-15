@@ -1309,5 +1309,9 @@ LABEL_192:
 }
 ```
 
+## Compile
+- Visual Studio 2022 & WDK10
+- llvm-msvc [[link]](https://github.com/NewWorldComingSoon/llvm-msvc-build)
+
 ## Credit
 - https://github.com/hypervisor/kli
