@@ -7,7 +7,7 @@ Expanding Kernel Lazy Importer
 - Use random seeds
 - Add caching mechanism
 
-## Example
+## Example1
 ```C++
     auto pExAllocatePoolWithTag = KLI_CALL(ExAllocatePoolWithTag, NonPagedPool, PAGE_SIZE, 'enoN');
     if (pExAllocatePoolWithTag)
@@ -17,7 +17,7 @@ Expanding Kernel Lazy Importer
     }
 ```
 
-## Output
+## Output1
 ```C++
 void test_once(void)
 {
