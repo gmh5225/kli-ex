@@ -1314,6 +1314,145 @@ LABEL_192:
 }
 ```
 
+## Example2
+```C++
+    auto pAddr = KLI_CACHED_CALL(ExAllocatePoolWithTag, NonPagedPool, PAGE_SIZE, 'x1x1');
+    if (pAddr)
+    {
+        dprintf("test_cached:pAddr=%p\n", pAddr);
+        KLI_CACHED_CALL(ExFreePoolWithTag, pAddr, 'x1x1');
+    }
+```
+
+## Output2
+```C++
+void test_cached(void)
+{
+  unsigned __int64 v0; // rax
+  __m128i si128; // xmm0
+  __int64 v2; // rcx
+  __m128i v3; // xmm6
+  __int64 v4; // rdx
+  unsigned __int8 v5; // r8
+  int v6; // r9d
+  char v7; // r10
+  int v8; // r11d
+  __int64 v9; // rcx
+  __int64 v10; // rdx
+  unsigned __int8 v11; // r8
+  char v12; // r9
+  char v13; // r11
+  const void *v14; // rax
+  const void *v15; // rsi
+  unsigned __int64 v16; // rax
+  __m128i v17; // xmm0
+  __int64 i; // rcx
+  __int64 v19; // rdx
+  unsigned __int8 v20; // r8
+  int v21; // r9d
+  char v22; // r10
+  int v23; // r11d
+  __int64 v24; // rcx
+  __int64 v25; // rdx
+  unsigned __int8 v26; // r8
+  char v27; // r9
+  char v28; // r11
+  __int64 v29; // [rsp+28h] [rbp-58h]
+  __int64 v30[34]; // [rsp+30h] [rbp-50h]
+
+  v0 = (unsigned __int64)KLIExAllocatePoolWithTag;
+  v30[0] = 3596i64;
+  v29 = 3786i64;
+  si128 = _mm_load_si128((const __m128i *)&_xmm);
+  v2 = 1i64;
+  v3 = _mm_load_si128((const __m128i *)&_xmm);
+  do
+  {
+    *(__m128i *)&v30[v2 + 1] = si128;
+    si128 = _mm_add_epi8(si128, v3);
+    v2 += 2i64;
+  }
+  while ( v2 != 33 );
+  v4 = 8i64;
+  v5 = 0;
+  v6 = 0;
+  do
+  {
+    v7 = *((_BYTE *)&v30[1] + v4);
+    v8 = v6;
+    v5 += *((_BYTE *)v30 + v6) + v7;
+    *((_BYTE *)&v30[1] + v4) = *((_BYTE *)&v30[2] + v5);
+    *((_BYTE *)&v30[2] + v5) = v7;
+    ++v6;
+    if ( v8 >= 7 )
+      v6 = 0;
+    ++v4;
+  }
+  while ( v4 != 264 );
+  v9 = 0i64;
+  LOBYTE(v10) = 0;
+  v11 = 0;
+  do
+  {
+    v10 = (unsigned __int8)(v10 + 1);
+    v12 = *((_BYTE *)&v30[2] + v10);
+    v11 += v12;
+    v13 = *((_BYTE *)&v30[2] + v11);
+    *((_BYTE *)&v30[2] + v10) = v13;
+    *((_BYTE *)&v30[2] + v11) = v12;
+    *((_BYTE *)&v30[-1] + v9++) ^= *((_BYTE *)&v30[2] + (unsigned __int8)(v12 + v13));
+  }
+  while ( v9 != 8 );
+  v14 = (const void *)((__int64 (__fastcall *)(_QWORD, __int64, __int64))(v29 ^ v0))(0i64, 4096i64, 2016507953i64);
+  if ( v14 )
+  {
+    v15 = v14;
+    DbgPrintEx(0x4Du, 0, "test_cached:pAddr=%p\n", v14);
+    v16 = (unsigned __int64)KLIExFreePoolWithTag;
+    v30[0] = 3596i64;
+    v29 = 3786i64;
+    v17 = _mm_load_si128((const __m128i *)&_xmm);
+    for ( i = 1i64; i != 33; i += 2i64 )
+    {
+      *(__m128i *)&v30[i + 1] = v17;
+      v17 = _mm_add_epi8(v17, v3);
+    }
+    v19 = 8i64;
+    v20 = 0;
+    v21 = 0;
+    do
+    {
+      v22 = *((_BYTE *)&v30[1] + v19);
+      v23 = v21;
+      v20 += *((_BYTE *)v30 + v21) + v22;
+      *((_BYTE *)&v30[1] + v19) = *((_BYTE *)&v30[2] + v20);
+      *((_BYTE *)&v30[2] + v20) = v22;
+      ++v21;
+      if ( v23 >= 7 )
+        v21 = 0;
+      ++v19;
+    }
+    while ( v19 != 264 );
+    v24 = 0i64;
+    LOBYTE(v25) = 0;
+    v26 = 0;
+    do
+    {
+      v25 = (unsigned __int8)(v25 + 1);
+      v27 = *((_BYTE *)&v30[2] + v25);
+      v26 += v27;
+      v28 = *((_BYTE *)&v30[2] + v26);
+      *((_BYTE *)&v30[2] + v25) = v28;
+      *((_BYTE *)&v30[2] + v26) = v27;
+      *((_BYTE *)&v30[-1] + v24++) ^= *((_BYTE *)&v30[2] + (unsigned __int8)(v27 + v28));
+    }
+    while ( v24 != 8 );
+    ((void (__fastcall *)(const void *, __int64))(v29 ^ v16))(v15, 2016507953i64);
+  }
+}
+```
+
+
 ## Compile
 - Visual Studio 2022 & WDK10
 - llvm-msvc [[link]](https://github.com/NewWorldComingSoon/llvm-msvc-build)
