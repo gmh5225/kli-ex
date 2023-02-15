@@ -1457,5 +1457,8 @@ void test_cached(void)
 - Visual Studio 2022 & WDK10
 - llvm-msvc [[link]](https://github.com/NewWorldComingSoon/llvm-msvc-build)
 
+## BackEngineerLab
+- https://git.back.engineering/gmh5225/kli-ex
+
 ## Credit
 - https://github.com/hypervisor/kli
