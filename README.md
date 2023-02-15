@@ -2,6 +2,10 @@
 Expanding Kernel Lazy Importer
 
 
+## Features
+- Hiding Global Variables
+- Using random seeds
+
 ## Example
 ```C++
     auto pExAllocatePoolWithTag = KLI_CALL(ExAllocatePoolWithTag, NonPagedPool, PAGE_SIZE, 'enoN');
