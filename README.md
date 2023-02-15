@@ -2,6 +2,9 @@
 Expanding Kernel Lazy Importer
 
 
+## Motivation
+Juse providing a modification idea.
+
 ## Features
 - Hide Global Variables
 - Use random seeds
