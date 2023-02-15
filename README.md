@@ -3,8 +3,9 @@ Expanding Kernel Lazy Importer
 
 
 ## Features
-- Hiding Global Variables
-- Using random seeds
+- Hide Global Variables
+- Use random seeds
+- Add caching mechanism
 
 ## Example
 ```C++
