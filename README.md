@@ -3,7 +3,7 @@ Expanding Kernel Lazy Importer
 
 
 ## Motivation
-Juse providing a modification idea.
+Just providing a modification idea.
 
 ## Features
 - Hide Global Variables
