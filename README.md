@@ -1462,3 +1462,7 @@ void test_cached(void)
 
 ## Credit
 - https://github.com/hypervisor/kli
+
+## Some discussions on UnknownCheats
+- https://www.unknowncheats.me/forum/general-programming-and-reversing/571397-expanding-kernel-lazy-importer-kli-ex.html
+
