@@ -1,9 +1,6 @@
 # kli-ex
-Expanding Kernel Lazy Importer
-
-
-## Motivation
-Just providing a modification idea.
+kli-ex is an extended version of kli. Just providing a modification idea.
+You can modify the encryption algorithm in any way you like.
 
 ## Features
 - Hide Global Variables
